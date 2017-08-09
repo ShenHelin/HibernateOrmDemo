@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-7 15:15:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.company.dao.pojo.twoway12n">
+    <class name="Dept" table="XX_DEPT">
+        <id name="deptno" type="int">
+            <column name="DEPTNO" />
+            <generator class="native" />
+        </id>
+        <property name="dname" type="java.lang.String">
+            <column name="DNAME" />
+        </property>
+        <property name="loc" type="java.lang.String">
+            <column name="LOC" />
+        </property>
+        <set name="emps" table="XX_EMP" inverse="true" lazy="true">
+            <key>
+                <column name="DEPTNO" />
+            </key>
+            <one-to-many class="Emp" />
+        </set>
+    </class>
+</hibernate-mapping>

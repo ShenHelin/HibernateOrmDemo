@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-7 16:04:10 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.company.dao.pojo.twoway121">
+    <class name="Detail" table="XX_DETAIL">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="foreign">
+            	<param name="property">login</param>
+            </generator>
+        </id>
+        <property name="realname" type="java.lang.String">
+            <column name="REALNAME" />
+        </property>
+        <property name="balance" type="double">
+            <column name="BALANCE" />
+        </property>
+        <property name="regtime" type="timestamp">
+            <column name="REGTIME" />
+        </property>
+        <one-to-one name="login" class="Login" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

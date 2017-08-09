@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql:///test</property>
+        <property name="hibernate.connection.password">123456</property>
+        <property name="hibernate.connection.username">root</property>
+        
+         <!-- Hibernate直接配置c3p0，不用再写c3p0-config.xml -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">50</property>
+        <property name="hibernate.c3p0.acquire_increment">5</property>
+        <property name="hibernate.c3p0.idle_test_period">2000</property>
+        <property name="hibernate.c3p0.timeout">2000</property>
+        <property name="hibernate.c3p0.max_statements">250</property>
+        
+        <!-- 配置Hibernate正向工程，根据POJO和hbm配置文件去创建表，修改表
+        update:如果表已经存在，则更新，否则，创建
+        create：不管表是否已经存在，都会新建一个覆盖
+         -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!-- 在Hibernate调试时，我们希望看到Hibernate框架执行的sql语句，并且sql语句是格式化的 -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+		
+		<!-- 设置事务隔离级别  READ COMMITED ：Oracle默认就是READ COMMITED，MySQL需要重新设置 -->
+		<property name="hibernate.connection.isolation">2</property>
+
+        <!-- 对hbm文件进行注册 -->
+		<mapping resource="com/company/dao/pojo/selftest/Course.hbm.xml"/>
+		<mapping resource="com/company/dao/pojo/selftest/Stu.hbm.xml"/>
+		<mapping resource="com/company/dao/pojo/selftest/Score.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

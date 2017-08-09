@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-8 14:51:25 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.company.dao.pojo.twowaym2n">
+	<class name="Score" table="Y_SCORE">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<many-to-one name="stu" class="Stu">
+			<column name="SID" />
+		</many-to-one>
+		<many-to-one name="course" class="Course">
+			<column name="CID" />
+		</many-to-one>
+		<property name="courseScore" type="java.lang.Double">
+			<column name="COURSESCORE" />
+		</property>
+	</class>
+</hibernate-mapping>

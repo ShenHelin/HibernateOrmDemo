@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-8 10:48:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.company.dao.pojo.twowaym2n.Score" table="X_SCORE">
+        
+        <composite-id>
+        	<key-property name="sid" column="SID" type="int"></key-property>
+        	<key-property name="cid" column="CID" type="int"></key-property>
+        </composite-id>
+        
+        <property name="courseScore" type="java.lang.Double">
+            <column name="COURSESCORE" />
+        </property>
+    </class>
+</hibernate-mapping>

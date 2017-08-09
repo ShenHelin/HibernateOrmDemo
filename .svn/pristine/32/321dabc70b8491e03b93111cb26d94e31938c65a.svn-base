@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.company.dao.pojo.onewayn21">
+	<class name="Emp" table="X_EMP">
+		<id name="empno" type="int">
+			<column name="EMPNO" />
+			<generator class="assigned" />
+		</id>
+		<property name="ename" type="java.lang.String">
+			<column name="ENAME" />
+		</property>
+		<property name="sal" type="double">
+			<column name="SAL" />
+		</property>
+		<property name="hiredate" type="date">
+			<column name="HIREDATE" />
+		</property>
+		<!-- 定义单项多对一关系，Emp与Dept产生的多对一关系关联 -->
+		<many-to-one name="dept" class="Dept" column="DEPTNO">
+		</many-to-one>
+	</class>
+</hibernate-mapping>
